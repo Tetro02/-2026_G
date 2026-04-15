@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Tetro" Host="LAPTOP-OJ78FPOQ" Pid="36928" HostCore="32" HostMemory="016337772544">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Tetro" Host="LAPTOP-OJ78FPOQ" Pid="24940" HostCore="32" HostMemory="016337772544">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Tetro" Host="LAPTOP-OJ78FPOQ" Pid="25124" HostCore="32" HostMemory="016337772544">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Tetro" Host="LAPTOP-OJ78FPOQ" Pid="37340" HostCore="32" HostMemory="016337772544">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Tetro" Host="LAPTOP-OJ78FPOQ" Pid="23884" HostCore="32" HostMemory="016337772544">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Tetro" Host="LAPTOP-OJ78FPOQ" Pid="34088" HostCore="32" HostMemory="016337772544">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Tetro" Host="LAPTOP-OJ78FPOQ" Pid="1852" HostCore="32" HostMemory="016337772544">
+    </Process>
+</ProcessHandle>
