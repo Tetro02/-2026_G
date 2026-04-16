@@ -83,7 +83,8 @@ COMPONENT design_1
     rstb_0 : IN STD_LOGIC;
     doutb_0 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     enb_0 : IN STD_LOGIC;
-    web_0 : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+    web_0 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    IRQ_F2P_0 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
   );
 END COMPONENT;
 -- COMP_TAG_END ------  End cut for COMPONENT Declaration  ------
@@ -124,7 +125,8 @@ your_instance_name : design_1
     rstb_0 => rstb_0,
     doutb_0 => doutb_0,
     enb_0 => enb_0,
-    web_0 => web_0
+    web_0 => web_0,
+    IRQ_F2P_0 => IRQ_F2P_0
   );
 -- INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

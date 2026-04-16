@@ -1,8 +1,24 @@
-# 2026-04-15T08:25:21.882480900
+# 2026-04-16T15:54:59.074636200
 import vitis
 
 client = vitis.create_client()
 client.set_workspace(path="7020_BRAM_ADC")
 
-vitis.dispose()
+client.delete_component(name="hello_world")
+
+client.delete_component(name="hello_world")
+
+client.delete_component(name="platform")
+
+platform = client.create_platform_component(name = "platform",hw_design = "$COMPONENT_LOCATION/../Test_Top.xsa",os = "standalone",cpu = "ps7_cortexa9_0",domain_name = "standalone_ps7_cortexa9_0",compiler = "gcc")
+
+platform = client.get_component(name="platform")
+status = platform.build()
+
+comp = client.create_app_component(name="hello_world",platform = "$COMPONENT_LOCATION/../platform/export/platform/platform.xpfm",domain = "standalone_ps7_cortexa9_0",template = "hello_world")
+
+status = platform.build()
+
+comp = client.get_component(name="hello_world")
+comp.build()
 

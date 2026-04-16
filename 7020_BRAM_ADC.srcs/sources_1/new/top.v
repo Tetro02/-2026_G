@@ -23,7 +23,8 @@ module Test_Top  (
     UART_0_1_rxd,
     UART_0_1_txd,
     clk_out_adc,
-    adc_data_in);
+    adc_data_in
+    );
 	
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
@@ -65,6 +66,22 @@ module Test_Top  (
     .R(1'b0),
     .S(1'b0)
 );
+
+//一秒钟周期计数器（50MHz时钟）
+reg [25:0] clk_div_counter = 0;
+reg [0:0] tri_clk_io = 0;
+
+
+always @(posedge FCLK_CLK0) begin
+    if (clk_div_counter == 26'd50000000 - 1) begin
+        clk_div_counter <= 0;
+        tri_clk_io <= ~tri_clk_io; // 每秒翻转一次GPIO输出
+    end
+    else begin
+        clk_div_counter <= clk_div_counter + 1;
+    end
+end
+
 
   // BRAM 接口信号线
   wire [31:0] addrb;   // BRAM 地址
@@ -109,6 +126,7 @@ design_1_wrapper design_1_wrapper_inst
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
         .UART_0_1_rxd(UART_0_1_rxd),
         .UART_0_1_txd(UART_0_1_txd),
+        .IRQ_F2P_0(tri_clk_io),
 
 	.FCLK_CLK0_0	(FCLK_CLK0),
 	.addrb_0		(addrb[31:0]),

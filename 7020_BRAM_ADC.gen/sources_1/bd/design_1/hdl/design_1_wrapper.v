@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-//Date        : Sun Apr 12 13:17:18 2026
+//Date        : Thu Apr 16 13:14:19 2026
 //Host        : LAPTOP-OJ78FPOQ running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -33,6 +33,7 @@ module design_1_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
+    IRQ_F2P_0,
     UART_0_1_rxd,
     UART_0_1_txd,
     addrb_0,
@@ -64,6 +65,7 @@ module design_1_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
+  input [0:0]IRQ_F2P_0;
   input UART_0_1_rxd;
   output UART_0_1_txd;
   input [31:0]addrb_0;
@@ -96,6 +98,7 @@ module design_1_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
+  wire [0:0]IRQ_F2P_0;
   wire UART_0_1_rxd;
   wire UART_0_1_txd;
   wire [31:0]addrb_0;
@@ -129,6 +132,7 @@ module design_1_wrapper
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
+        .IRQ_F2P_0(IRQ_F2P_0),
         .UART_0_1_rxd(UART_0_1_rxd),
         .UART_0_1_txd(UART_0_1_txd),
         .addrb_0(addrb_0),

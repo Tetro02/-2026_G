@@ -84,7 +84,8 @@ design_1 your_instance_name (
   .rstb_0(rstb_0), // input wire rstb_0
   .doutb_0(doutb_0), // output wire [31:0] doutb_0
   .enb_0(enb_0), // input wire enb_0
-  .web_0(web_0) // input wire [3:0] web_0
+  .web_0(web_0), // input wire [3:0] web_0
+  .IRQ_F2P_0(IRQ_F2P_0) // input wire [0:0] IRQ_F2P_0
 );
 // INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

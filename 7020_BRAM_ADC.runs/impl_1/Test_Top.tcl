@@ -97,7 +97,6 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Write Bitstream" START { ROLLUP_AUTO }
@@ -108,7 +107,6 @@ set rc [catch {
   create_msg_db write_bitstream.pb
   set_param general.usePosixSpawnForFork 1
   set_param chipscope.maxJobs 8
-  set_param bd.open.in_stealth_mode 1
   set_param runs.launchOptions { -jobs 16  }
   open_checkpoint Test_Top_routed.dcp
   set_property webtalk.parent_dir C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.cache/wt [current_project]

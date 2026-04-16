@@ -1,0 +1,24 @@
+{
+	"files": [
+		{
+			"path": "7020_BRAM_ADC.srcs/sources_1/new/top.v",
+			"bookmarks": [
+				{
+					"line": 28,
+					"column": 23,
+					"label": "top.v"
+				}
+			]
+		},
+		{
+			"path": "7020_BRAM_ADC.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v",
+			"bookmarks": [
+				{
+					"line": 42,
+					"column": 22,
+					"label": "wrapper"
+				}
+			]
+		}
+	]
+}
