@@ -1,3 +1,6 @@
+AXI_Lite_PS_To_PL_PL_0:
+- AXI_Lite_PS_To_PL_PL
+- None
 axi_bram_ctrl_0:
 - axi_bram_ctrl
 - bram

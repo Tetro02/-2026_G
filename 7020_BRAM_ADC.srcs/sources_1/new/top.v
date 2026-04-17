@@ -67,37 +67,24 @@ module Test_Top  (
     .S(1'b0)
 );
 
-//一秒钟周期计数器（50MHz时钟）
-reg [25:0] clk_div_counter = 0;
-reg [0:0] tri_clk_io = 0;
-
-
-always @(posedge FCLK_CLK0) begin
-    if (clk_div_counter == 26'd50000000 - 1) begin
-        clk_div_counter <= 0;
-        tri_clk_io <= ~tri_clk_io; // 每秒翻转一次GPIO输出
-    end
-    else begin
-        clk_div_counter <= clk_div_counter + 1;
-    end
-end
-
-
   // BRAM 接口信号线
   wire [31:0] addrb;   // BRAM 地址
   wire [31:0] doutb;   // BRAM 读出数据
   wire [31:0] dinb;    // 写入BRAM数据(ADC采样值)
   wire [3:0]  web;     // BRAM 写使能
   wire        FCLK_CLK0; // PS输出时钟
+  wire        start_adc_flag;// 从PS传来的开始采集标志
+  wire        end_adc_flag;  // 采集完成标志
   
 // ===================== 替换为：模拟ADC采集1024点写入BRAM =====================
 adc_bram_sample adc_bram_sample_inst(
 	.clk_bram	(FCLK_CLK0),     // BRAM工作时钟
-	.rst_n	    (1'b1),          // 复位：高电平不复位
+	.rst_n	    (start_adc_flag),          // 复位：高电平不复位
 	.addrb	    (addrb[16:0]),    // 17位地址(0~131071)，兼容32位端口
 	.dinb	    (dinb),          // ADC采样数据 → 写入BRAM
 	.web	    (web),            // 写使能信号
-  .adc_data   (adc_data_in)    // 模拟ADC输入数据
+    .adc_data   (adc_data_in),    // 模拟ADC输入数据
+    .adc_end_flag(end_adc_flag)
 ); 
 
 // ===================== 原有BD wrapper 完全不变 =====================
@@ -126,7 +113,8 @@ design_1_wrapper design_1_wrapper_inst
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
         .UART_0_1_rxd(UART_0_1_rxd),
         .UART_0_1_txd(UART_0_1_txd),
-        .IRQ_F2P_0(tri_clk_io),
+        .IRQ_F2P_0(end_adc_flag), // 采集完成标志连接到PS中断
+        .slv_reg0_o_0(start_adc_flag),
 
 	.FCLK_CLK0_0	(FCLK_CLK0),
 	.addrb_0		(addrb[31:0]),

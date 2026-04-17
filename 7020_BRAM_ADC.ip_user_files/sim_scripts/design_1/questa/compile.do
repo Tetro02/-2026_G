@@ -2,6 +2,7 @@ vlib questa_lib/work
 vlib questa_lib/msim
 
 vlib questa_lib/msim/xilinx_vip
+vlib questa_lib/msim/xpm
 vlib questa_lib/msim/axi_infrastructure_v1_1_0
 vlib questa_lib/msim/axi_vip_v1_1_22
 vlib questa_lib/msim/processing_system7_vip_v1_0_24
@@ -13,6 +14,7 @@ vlib questa_lib/msim/axi_register_slice_v2_1_36
 vlib questa_lib/msim/axi_bram_ctrl_v4_1_13
 
 vmap xilinx_vip questa_lib/msim/xilinx_vip
+vmap xpm questa_lib/msim/xpm
 vmap axi_infrastructure_v1_1_0 questa_lib/msim/axi_infrastructure_v1_1_0
 vmap axi_vip_v1_1_22 questa_lib/msim/axi_vip_v1_1_22
 vmap processing_system7_vip_v1_0_24 questa_lib/msim/processing_system7_vip_v1_0_24
@@ -34,6 +36,14 @@ vlog -work xilinx_vip  -incr -mfcu  -sv -L smartconnect_v1_0 -L axi_vip_v1_1_22 
 "D:/Tetro/Tools/Vivado/2025.2/Vivado/data/xilinx_vip/hdl/clk_vip_if.sv" \
 "D:/Tetro/Tools/Vivado/2025.2/Vivado/data/xilinx_vip/hdl/rst_vip_if.sv" \
 
+vlog -work xpm  -incr -mfcu  -sv -L smartconnect_v1_0 -L axi_vip_v1_1_22 -L processing_system7_vip_v1_0_24 -L xilinx_vip "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/9a25/hdl" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/f0b6/hdl/verilog" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/00fe/hdl/verilog" "+incdir+D:/Tetro/Tools/Vivado/2025.2/Vivado/data/rsb/busdef" "+incdir+D:/Tetro/Tools/Vivado/2025.2/Vivado/data/xilinx_vip/include" \
+"D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
+"D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+
+vcom -work xpm  -93  \
+"D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_VCOMP.vhd" \
+
 vlog -work axi_infrastructure_v1_1_0  -incr -mfcu  "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/9a25/hdl" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/f0b6/hdl/verilog" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/00fe/hdl/verilog" "+incdir+D:/Tetro/Tools/Vivado/2025.2/Vivado/data/rsb/busdef" "+incdir+D:/Tetro/Tools/Vivado/2025.2/Vivado/data/xilinx_vip/include" \
 "../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
 
@@ -51,6 +61,7 @@ vlog -work blk_mem_gen_v8_4_12  -incr -mfcu  "+incdir+../../../../7020_BRAM_ADC.
 
 vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/9a25/hdl" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/f0b6/hdl/verilog" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/00fe/hdl/verilog" "+incdir+D:/Tetro/Tools/Vivado/2025.2/Vivado/data/rsb/busdef" "+incdir+D:/Tetro/Tools/Vivado/2025.2/Vivado/data/xilinx_vip/include" \
 "../../../bd/design_1/ip/design_1_blk_mem_gen_0_0/sim/design_1_blk_mem_gen_0_0.v" \
+"../../../bd/design_1/ip/design_1_axi_smc_0/bd_0/sim/bd_afc3.v" \
 
 vcom -work proc_sys_reset_v5_0_17  -93  \
 "../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/9438/hdl/proc_sys_reset_v5_0_vh_rfs.vhd" \
@@ -119,9 +130,13 @@ vlog -work smartconnect_v1_0  -incr -mfcu  -sv -L smartconnect_v1_0 -L axi_vip_v
 
 vlog -work xil_defaultlib  -incr -mfcu  -sv -L smartconnect_v1_0 -L axi_vip_v1_1_22 -L processing_system7_vip_v1_0_24 -L xilinx_vip "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/9a25/hdl" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/f0b6/hdl/verilog" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/00fe/hdl/verilog" "+incdir+D:/Tetro/Tools/Vivado/2025.2/Vivado/data/rsb/busdef" "+incdir+D:/Tetro/Tools/Vivado/2025.2/Vivado/data/xilinx_vip/include" \
 "../../../bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_22/sim/bd_afc3_m00e_0.sv" \
-
-vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/9a25/hdl" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/f0b6/hdl/verilog" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/00fe/hdl/verilog" "+incdir+D:/Tetro/Tools/Vivado/2025.2/Vivado/data/rsb/busdef" "+incdir+D:/Tetro/Tools/Vivado/2025.2/Vivado/data/xilinx_vip/include" \
-"../../../bd/design_1/ip/design_1_axi_smc_0/bd_0/sim/bd_afc3.v" \
+"../../../bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_23/sim/bd_afc3_m01s2a_0.sv" \
+"../../../bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_24/sim/bd_afc3_m01arn_0.sv" \
+"../../../bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_25/sim/bd_afc3_m01rn_0.sv" \
+"../../../bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_26/sim/bd_afc3_m01awn_0.sv" \
+"../../../bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_27/sim/bd_afc3_m01wn_0.sv" \
+"../../../bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_28/sim/bd_afc3_m01bn_0.sv" \
+"../../../bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_29/sim/bd_afc3_m01e_0.sv" \
 
 vcom -work smartconnect_v1_0  -93  \
 "../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/cb42/hdl/sc_ultralite_v1_0_rfs.vhd" \
@@ -146,6 +161,9 @@ vcom -work xil_defaultlib  -93  \
 
 vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/9a25/hdl" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/f0b6/hdl/verilog" "+incdir+../../../../7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/00fe/hdl/verilog" "+incdir+D:/Tetro/Tools/Vivado/2025.2/Vivado/data/rsb/busdef" "+incdir+D:/Tetro/Tools/Vivado/2025.2/Vivado/data/xilinx_vip/include" \
 "../../../bd/design_1/sim/design_1.v" \
+"../../../bd/design_1/ipshared/3e94/hdl/AXI_Lite_PS_To_PL_PL_slave_lite_v1_0_S00_AXI.v" \
+"../../../bd/design_1/ipshared/3e94/hdl/AXI_Lite_PS_To_PL_PL.v" \
+"../../../bd/design_1/ip/design_1_AXI_Lite_PS_To_PL_PL_0_0/sim/design_1_AXI_Lite_PS_To_PL_PL_0_0.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

@@ -8,14 +8,17 @@
   **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
   **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
   **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-  **** Start of session at: Thu Apr 16 13:14:57 2026
+  **** Start of session at: Fri Apr 17 12:55:39 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source Test_Top.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 554.082 ; gain = 222.199
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Tetro/Documents/FPGA_Project/MyExample/ip_repo/AXI_Lite_PS_To_PL_PL_1_0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.cache/ip 
 Command: read_checkpoint -auto_incremental -incremental C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/utils_1/imports/synth_1/Test_Top.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/utils_1/imports/synth_1/Test_Top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -28,12 +31,12 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 24544
+INFO: [Synth 8-7075] Helper process launched with PID 32988
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1373.023 ; gain = 536.930
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1375.793 ; gain = 540.375
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-11241] undeclared symbol 'FCLK_CLK0', assumed default net type 'wire' [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/top.v:62]
-WARNING: [Synth 8-8895] 'FCLK_CLK0' is already implicitly declared on line 62 [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/top.v:91]
+WARNING: [Synth 8-8895] 'FCLK_CLK0' is already implicitly declared on line 62 [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/top.v:75]
 INFO: [Synth 8-6157] synthesizing module 'Test_Top' [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/top.v:1]
 INFO: [Synth 8-6157] synthesizing module 'ODDR' [D:/Tetro/Tools/Vivado/2025.2/Vivado/scripts/rt/data/unisim_comp.v:117225]
 	Parameter DDR_CLK_EDGE bound to: SAME_EDGE - type: string 
@@ -42,8 +45,21 @@ INFO: [Synth 8-6157] synthesizing module 'ODDR' [D:/Tetro/Tools/Vivado/2025.2/Vi
 INFO: [Synth 8-6155] done synthesizing module 'ODDR' (0#1) [D:/Tetro/Tools/Vivado/2025.2/Vivado/scripts/rt/data/unisim_comp.v:117225]
 INFO: [Synth 8-6157] synthesizing module 'adc_bram_sample' [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/bram_ctrl_my.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'adc_bram_sample' (0#1) [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/bram_ctrl_my.v:1]
-INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
+INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
 INFO: [Synth 8-6157] synthesizing module 'design_1' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:13]
+INFO: [Synth 8-6157] synthesizing module 'design_1_AXI_Lite_PS_To_PL_PL_0_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_AXI_Lite_PS_To_PL_PL_0_0/synth/design_1_AXI_Lite_PS_To_PL_PL_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'AXI_Lite_PS_To_PL_PL' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/3e94/hdl/AXI_Lite_PS_To_PL_PL.v:4]
+INFO: [Synth 8-6157] synthesizing module 'AXI_Lite_PS_To_PL_PL_slave_lite_v1_0_S00_AXI' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/3e94/hdl/AXI_Lite_PS_To_PL_PL_slave_lite_v1_0_S00_AXI.v:4]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/3e94/hdl/AXI_Lite_PS_To_PL_PL_slave_lite_v1_0_S00_AXI.v:141]
+INFO: [Synth 8-226] default block is never used [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/3e94/hdl/AXI_Lite_PS_To_PL_PL_slave_lite_v1_0_S00_AXI.v:215]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/3e94/hdl/AXI_Lite_PS_To_PL_PL_slave_lite_v1_0_S00_AXI.v:268]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_Lite_PS_To_PL_PL_slave_lite_v1_0_S00_AXI' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/3e94/hdl/AXI_Lite_PS_To_PL_PL_slave_lite_v1_0_S00_AXI.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_Lite_PS_To_PL_PL' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/3e94/hdl/AXI_Lite_PS_To_PL_PL.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_AXI_Lite_PS_To_PL_PL_0_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_AXI_Lite_PS_To_PL_PL_0_0/synth/design_1_AXI_Lite_PS_To_PL_PL_0_0.v:53]
+WARNING: [Synth 8-7071] port 'slv_reg1_o' of module 'design_1_AXI_Lite_PS_To_PL_PL_0_0' is unconnected for instance 'AXI_Lite_PS_To_PL_PL_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:213]
+WARNING: [Synth 8-7071] port 'slv_reg2_o' of module 'design_1_AXI_Lite_PS_To_PL_PL_0_0' is unconnected for instance 'AXI_Lite_PS_To_PL_PL_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:213]
+WARNING: [Synth 8-7071] port 'slv_reg3_o' of module 'design_1_AXI_Lite_PS_To_PL_PL_0_0' is unconnected for instance 'AXI_Lite_PS_To_PL_PL_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:213]
+WARNING: [Synth 8-7023] instance 'AXI_Lite_PS_To_PL_PL_0' of module 'design_1_AXI_Lite_PS_To_PL_PL_0_0' has 25 connections declared, but only 22 given [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:213]
 INFO: [Synth 8-638] synthesizing module 'design_1_axi_bram_ctrl_0_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_0/synth/design_1_axi_bram_ctrl_0_0.vhd:104]
 	Parameter C_BRAM_INST_MODE bound to: EXTERNAL - type: string 
 	Parameter C_MEMORY_DEPTH bound to: 131072 - type: integer 
@@ -112,7 +128,7 @@ INFO: [Synth 8-256] done synthesizing module 'axi_bram_ctrl' (0#1) [c:/Users/Tet
 INFO: [Synth 8-256] done synthesizing module 'design_1_axi_bram_ctrl_0_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_0/synth/design_1_axi_bram_ctrl_0_0.vhd:104]
 INFO: [Synth 8-6157] synthesizing module 'design_1_axi_smc_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/synth/design_1_axi_smc_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:10]
-INFO: [Synth 8-6157] synthesizing module 'clk_map_imp_5Y9LOC' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:975]
+INFO: [Synth 8-6157] synthesizing module 'clk_map_imp_5Y9LOC' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1228]
 INFO: [Synth 8-638] synthesizing module 'bd_afc3_psr_aclk_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_1/synth/bd_afc3_psr_aclk_0.vhd:74]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_EXT_RST_WIDTH bound to: 4 - type: integer 
@@ -158,22 +174,19 @@ INFO: [Synth 8-256] done synthesizing module 'upcnt_n' (0#1) [c:/Users/Tetro/Doc
 INFO: [Synth 8-256] done synthesizing module 'sequence_psr' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/9438/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:304]
 INFO: [Synth 8-256] done synthesizing module 'proc_sys_reset' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/9438/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1302]
 INFO: [Synth 8-256] done synthesizing module 'bd_afc3_psr_aclk_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_1/synth/bd_afc3_psr_aclk_0.vhd:74]
-WARNING: [Synth 8-7071] port 'mb_reset' of module 'bd_afc3_psr_aclk_0' is unconnected for instance 'psr_aclk' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1012]
-WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'bd_afc3_psr_aclk_0' is unconnected for instance 'psr_aclk' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1012]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'bd_afc3_psr_aclk_0' is unconnected for instance 'psr_aclk' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1012]
-WARNING: [Synth 8-7071] port 'peripheral_aresetn' of module 'bd_afc3_psr_aclk_0' is unconnected for instance 'psr_aclk' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1012]
-WARNING: [Synth 8-7023] instance 'psr_aclk' of module 'bd_afc3_psr_aclk_0' has 10 connections declared, but only 6 given [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1012]
-INFO: [Synth 8-6155] done synthesizing module 'clk_map_imp_5Y9LOC' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:975]
-WARNING: [Synth 8-7071] port 'M01_ACLK' of module 'clk_map_imp_5Y9LOC' is unconnected for instance 'clk_map' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:506]
-WARNING: [Synth 8-7071] port 'M01_ARESETN' of module 'clk_map_imp_5Y9LOC' is unconnected for instance 'clk_map' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:506]
-WARNING: [Synth 8-7023] instance 'clk_map' of module 'clk_map_imp_5Y9LOC' has 11 connections declared, but only 9 given [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:506]
-INFO: [Synth 8-6157] synthesizing module 'm00_exit_pipeline_imp_1TZX5BB' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1021]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'bd_afc3_psr_aclk_0' is unconnected for instance 'psr_aclk' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1265]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'bd_afc3_psr_aclk_0' is unconnected for instance 'psr_aclk' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1265]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'bd_afc3_psr_aclk_0' is unconnected for instance 'psr_aclk' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1265]
+WARNING: [Synth 8-7071] port 'peripheral_aresetn' of module 'bd_afc3_psr_aclk_0' is unconnected for instance 'psr_aclk' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1265]
+WARNING: [Synth 8-7023] instance 'psr_aclk' of module 'bd_afc3_psr_aclk_0' has 10 connections declared, but only 6 given [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1265]
+INFO: [Synth 8-6155] done synthesizing module 'clk_map_imp_5Y9LOC' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1228]
+INFO: [Synth 8-6157] synthesizing module 'm00_exit_pipeline_imp_1TZX5BB' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1274]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3_m00e_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_22/synth/bd_afc3_m00e_0.sv:53]
 INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_async_rst' [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1175]
 INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_async_rst' (0#1) [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1175]
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_m00e_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_22/synth/bd_afc3_m00e_0.sv:53]
-INFO: [Synth 8-6155] done synthesizing module 'm00_exit_pipeline_imp_1TZX5BB' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1021]
-INFO: [Synth 8-6157] synthesizing module 'm00_nodes_imp_1GOYQYZ' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1319]
+INFO: [Synth 8-6155] done synthesizing module 'm00_exit_pipeline_imp_1TZX5BB' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1274]
+INFO: [Synth 8-6157] synthesizing module 'm00_nodes_imp_1GOYQYZ' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1572]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3_m00arn_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_17/synth/bd_afc3_m00arn_0.sv:53]
 INFO: [Synth 8-6157] synthesizing module 'xpm_memory_sdpram' [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8996]
 INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base' [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
@@ -208,20 +221,38 @@ INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized4' [D:/T
 INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized4' (0#1) [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
 INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_sdpram__parameterized4' (0#1) [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8996]
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_m00wn_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_20/synth/bd_afc3_m00wn_0.sv:53]
-INFO: [Synth 8-6155] done synthesizing module 'm00_nodes_imp_1GOYQYZ' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1319]
+INFO: [Synth 8-6155] done synthesizing module 'm00_nodes_imp_1GOYQYZ' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1572]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3_m00s2a_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_16/synth/bd_afc3_m00s2a_0.sv:53]
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_m00s2a_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_16/synth/bd_afc3_m00s2a_0.sv:53]
+INFO: [Synth 8-6157] synthesizing module 'm01_exit_pipeline_imp_1XMPFJB' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1814]
+INFO: [Synth 8-6157] synthesizing module 'bd_afc3_m01e_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_29/synth/bd_afc3_m01e_0.sv:53]
+INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_m01e_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_29/synth/bd_afc3_m01e_0.sv:53]
+INFO: [Synth 8-6155] done synthesizing module 'm01_exit_pipeline_imp_1XMPFJB' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1814]
+INFO: [Synth 8-6157] synthesizing module 'm01_nodes_imp_94N5OD' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:2056]
+INFO: [Synth 8-6157] synthesizing module 'bd_afc3_m01arn_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_24/synth/bd_afc3_m01arn_0.sv:53]
+INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_m01arn_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_24/synth/bd_afc3_m01arn_0.sv:53]
+INFO: [Synth 8-6157] synthesizing module 'bd_afc3_m01awn_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_26/synth/bd_afc3_m01awn_0.sv:53]
+INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_m01awn_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_26/synth/bd_afc3_m01awn_0.sv:53]
+INFO: [Synth 8-6157] synthesizing module 'bd_afc3_m01bn_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_28/synth/bd_afc3_m01bn_0.sv:53]
+INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_m01bn_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_28/synth/bd_afc3_m01bn_0.sv:53]
+INFO: [Synth 8-6157] synthesizing module 'bd_afc3_m01rn_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_25/synth/bd_afc3_m01rn_0.sv:53]
+INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_m01rn_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_25/synth/bd_afc3_m01rn_0.sv:53]
+INFO: [Synth 8-6157] synthesizing module 'bd_afc3_m01wn_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_27/synth/bd_afc3_m01wn_0.sv:53]
+INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_m01wn_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_27/synth/bd_afc3_m01wn_0.sv:53]
+INFO: [Synth 8-6155] done synthesizing module 'm01_nodes_imp_94N5OD' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:2056]
+INFO: [Synth 8-6157] synthesizing module 'bd_afc3_m01s2a_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_23/synth/bd_afc3_m01s2a_0.sv:53]
+INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_m01s2a_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_23/synth/bd_afc3_m01s2a_0.sv:53]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3_s00a2s_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_10/synth/bd_afc3_s00a2s_0.sv:53]
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_s00a2s_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_10/synth/bd_afc3_s00a2s_0.sv:53]
-INFO: [Synth 8-6157] synthesizing module 's00_entry_pipeline_imp_USCCV8' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1561]
+INFO: [Synth 8-6157] synthesizing module 's00_entry_pipeline_imp_USCCV8' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:2298]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3_s00mmu_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_7/synth/bd_afc3_s00mmu_0.sv:53]
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_s00mmu_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_7/synth/bd_afc3_s00mmu_0.sv:53]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3_s00sic_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_9/synth/bd_afc3_s00sic_0.sv:53]
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_s00sic_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_9/synth/bd_afc3_s00sic_0.sv:53]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3_s00tr_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_8/synth/bd_afc3_s00tr_0.sv:53]
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_s00tr_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_8/synth/bd_afc3_s00tr_0.sv:53]
-INFO: [Synth 8-6155] done synthesizing module 's00_entry_pipeline_imp_USCCV8' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1561]
-INFO: [Synth 8-6157] synthesizing module 's00_nodes_imp_Y7M43I' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:2137]
+INFO: [Synth 8-6155] done synthesizing module 's00_entry_pipeline_imp_USCCV8' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:2298]
+INFO: [Synth 8-6157] synthesizing module 's00_nodes_imp_Y7M43I' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:2874]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3_sarn_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_11/synth/bd_afc3_sarn_0.sv:53]
 INFO: [Synth 8-6157] synthesizing module 'xpm_memory_sdpram__parameterized5' [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8996]
 INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized5' [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
@@ -241,19 +272,11 @@ INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized7' 
 INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_sdpram__parameterized7' (0#1) [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8996]
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_sbn_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_15/synth/bd_afc3_sbn_0.sv:53]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3_srn_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_12/synth/bd_afc3_srn_0.sv:53]
-INFO: [Synth 8-6157] synthesizing module 'xpm_memory_sdpram__parameterized8' [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8996]
-INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized8' [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized8' (0#1) [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_sdpram__parameterized8' (0#1) [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8996]
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_srn_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_12/synth/bd_afc3_srn_0.sv:53]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3_swn_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_14/synth/bd_afc3_swn_0.sv:53]
-INFO: [Synth 8-6157] synthesizing module 'xpm_memory_sdpram__parameterized9' [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8996]
-INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized9' [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized9' (0#1) [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_sdpram__parameterized9' (0#1) [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8996]
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_swn_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_14/synth/bd_afc3_swn_0.sv:53]
-INFO: [Synth 8-6155] done synthesizing module 's00_nodes_imp_Y7M43I' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:2137]
-INFO: [Synth 8-6157] synthesizing module 'switchboards_imp_4N4PBE' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:2379]
+INFO: [Synth 8-6155] done synthesizing module 's00_nodes_imp_Y7M43I' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:2874]
+INFO: [Synth 8-6157] synthesizing module 'switchboards_imp_4N4PBE' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:3116]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3_arsw_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_2/synth/bd_afc3_arsw_0.sv:53]
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_arsw_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_2/synth/bd_afc3_arsw_0.sv:53]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3_awsw_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_4/synth/bd_afc3_awsw_0.sv:53]
@@ -264,59 +287,12 @@ INFO: [Synth 8-6157] synthesizing module 'bd_afc3_rsw_0' [c:/Users/Tetro/Documen
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_rsw_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_3/synth/bd_afc3_rsw_0.sv:53]
 INFO: [Synth 8-6157] synthesizing module 'bd_afc3_wsw_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_5/synth/bd_afc3_wsw_0.sv:53]
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3_wsw_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_5/synth/bd_afc3_wsw_0.sv:53]
-INFO: [Synth 8-6155] done synthesizing module 'switchboards_imp_4N4PBE' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:2379]
-WARNING: [Synth 8-7071] port 'M01_SC_AR_info' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7071] port 'M01_SC_AR_payld' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7071] port 'M01_SC_AR_req' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7071] port 'M01_SC_AR_send' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7071] port 'M01_SC_AW_info' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7071] port 'M01_SC_AW_payld' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7071] port 'M01_SC_AW_req' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7071] port 'M01_SC_AW_send' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7071] port 'M01_SC_W_info' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7071] port 'M01_SC_W_payld' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7071] port 'M01_SC_W_req' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7071] port 'M01_SC_W_send' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7071] port 'S01_SC_B_recv' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7071] port 'S01_SC_R_recv' of module 'switchboards_imp_4N4PBE' is unconnected for instance 'switchboards' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
-WARNING: [Synth 8-7023] instance 'switchboards' of module 'switchboards_imp_4N4PBE' has 77 connections declared, but only 63 given [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:909]
+INFO: [Synth 8-6155] done synthesizing module 'switchboards_imp_4N4PBE' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:3116]
 INFO: [Synth 8-6155] done synthesizing module 'bd_afc3' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:10]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_smc_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/synth/design_1_axi_smc_0.v:53]
-WARNING: [Synth 8-7071] port 'M00_AXI_awqos' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M00_AXI_arqos' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_awid' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_awaddr' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_awlen' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_awsize' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_awburst' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_awlock' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_awcache' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_awprot' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_awregion' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_awqos' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_awuser' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_awvalid' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_wid' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_wdata' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_wstrb' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_wlast' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_wuser' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_wvalid' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_bready' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_arid' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_araddr' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_arlen' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_arsize' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_arburst' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_arlock' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_arcache' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_arprot' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_arregion' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_arqos' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_aruser' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_arvalid' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7071] port 'M01_AXI_rready' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
-WARNING: [Synth 8-7023] instance 'axi_smc' of module 'design_1_axi_smc_0' has 118 connections declared, but only 84 given [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:234]
+WARNING: [Synth 8-7071] port 'M00_AXI_awqos' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:279]
+WARNING: [Synth 8-7071] port 'M00_AXI_arqos' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:279]
+WARNING: [Synth 8-7023] instance 'axi_smc' of module 'design_1_axi_smc_0' has 92 connections declared, but only 90 given [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:279]
 INFO: [Synth 8-638] synthesizing module 'design_1_blk_mem_gen_0_0' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_0/synth/design_1_blk_mem_gen_0_0.vhd:78]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_XDEVICEFAMILY bound to: zynq - type: string 
@@ -456,15 +432,16 @@ INFO: [Synth 8-3491] module 'xpm_cdc_single' declared at 'D:/Tetro/Tools/Vivado/
 INFO: [Synth 8-256] done synthesizing module 'lpf__parameterized0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/9438/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:821]
 INFO: [Synth 8-256] done synthesizing module 'proc_sys_reset__parameterized1' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/9438/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1302]
 INFO: [Synth 8-256] done synthesizing module 'design_1_rst_ps7_0_50M_0' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_50M_0/synth/design_1_rst_ps7_0_50M_0.vhd:74]
-WARNING: [Synth 8-7071] port 'mb_reset' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:402]
-WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:402]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:402]
-WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:402]
-WARNING: [Synth 8-7023] instance 'rst_ps7_0_50M' of module 'design_1_rst_ps7_0_50M_0' has 10 connections declared, but only 6 given [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:402]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:453]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:453]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:453]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:453]
+WARNING: [Synth 8-7023] instance 'rst_ps7_0_50M' of module 'design_1_rst_ps7_0_50M_0' has 10 connections declared, but only 6 given [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:453]
 INFO: [Synth 8-6155] done synthesizing module 'design_1' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (0#1) [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
-WARNING: [Synth 8-7071] port 'rstb_0' of module 'design_1_wrapper' is unconnected for instance 'design_1_wrapper_inst' [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/top.v:104]
-WARNING: [Synth 8-7023] instance 'design_1_wrapper_inst' of module 'design_1_wrapper' has 32 connections declared, but only 31 given [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/top.v:104]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (0#1) [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
+WARNING: [Synth 8-689] width (1) of port connection 'slv_reg0_o_0' does not match port width (32) of module 'design_1_wrapper' [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/top.v:117]
+WARNING: [Synth 8-7071] port 'rstb_0' of module 'design_1_wrapper' is unconnected for instance 'design_1_wrapper_inst' [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/top.v:91]
+WARNING: [Synth 8-7023] instance 'design_1_wrapper_inst' of module 'design_1_wrapper' has 33 connections declared, but only 32 given [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/top.v:91]
 INFO: [Synth 8-6155] done synthesizing module 'Test_Top' (0#1) [C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/top.v:1]
 INFO: [Synth 8-6014] Unused sequential element curr_awsize_reg_reg was removed.  [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/2f03/hdl/axi_bram_ctrl_v4_1_rfs.vhd:25239]
 INFO: [Synth 8-6014] Unused sequential element curr_awlen_reg_1_or_2_reg was removed.  [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/2f03/hdl/axi_bram_ctrl_v4_1_rfs.vhd:25517]
@@ -472,7 +449,7 @@ INFO: [Synth 8-6014] Unused sequential element GEN_NO_RD_CMD_OPT.axi_arsize_pipe
 INFO: [Synth 8-6014] Unused sequential element GEN_NO_RD_CMD_OPT.curr_arsize_reg_reg was removed.  [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/2f03/hdl/axi_bram_ctrl_v4_1_rfs.vhd:15924]
 INFO: [Synth 8-6014] Unused sequential element GEN_NO_RD_CMD_OPT.no_ar_ack_reg was removed.  [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/2f03/hdl/axi_bram_ctrl_v4_1_rfs.vhd:19829]
 INFO: [Synth 8-6014] Unused sequential element GEN_NO_RD_CMD_OPT.do_cmplt_burst_reg was removed.  [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ipshared/2f03/hdl/axi_bram_ctrl_v4_1_rfs.vhd:21170]
-WARNING: [Synth 8-3848] Net aresetn_out in module/entity clk_map_imp_5Y9LOC does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:995]
+WARNING: [Synth 8-3848] Net aresetn_out in module/entity clk_map_imp_5Y9LOC does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:1248]
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_pipelined.state_reg' through user attribute
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_pipelined.state_reg' through user attribute
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_AB_reg_slice.state_reg' through user attribute
@@ -481,38 +458,6 @@ INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_pipelined.state_r
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_pipelined.state_reg' through user attribute
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_pipelined.state_reg' through user attribute
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_AB_reg_slice.state_reg' through user attribute
-WARNING: [Synth 8-3848] Net M01_AXI_araddr in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:163]
-WARNING: [Synth 8-3848] Net M01_AXI_arburst in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:164]
-WARNING: [Synth 8-3848] Net M01_AXI_arcache in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:165]
-WARNING: [Synth 8-3848] Net M01_AXI_arid in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:166]
-WARNING: [Synth 8-3848] Net M01_AXI_arlen in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:167]
-WARNING: [Synth 8-3848] Net M01_AXI_arlock in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:168]
-WARNING: [Synth 8-3848] Net M01_AXI_arprot in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:169]
-WARNING: [Synth 8-3848] Net M01_AXI_arqos in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:170]
-WARNING: [Synth 8-3848] Net M01_AXI_arregion in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:172]
-WARNING: [Synth 8-3848] Net M01_AXI_arsize in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:173]
-WARNING: [Synth 8-3848] Net M01_AXI_aruser in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:174]
-WARNING: [Synth 8-3848] Net M01_AXI_arvalid in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:175]
-WARNING: [Synth 8-3848] Net M01_AXI_awaddr in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:176]
-WARNING: [Synth 8-3848] Net M01_AXI_awburst in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:177]
-WARNING: [Synth 8-3848] Net M01_AXI_awcache in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:178]
-WARNING: [Synth 8-3848] Net M01_AXI_awid in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:179]
-WARNING: [Synth 8-3848] Net M01_AXI_awlen in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:180]
-WARNING: [Synth 8-3848] Net M01_AXI_awlock in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:181]
-WARNING: [Synth 8-3848] Net M01_AXI_awprot in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:182]
-WARNING: [Synth 8-3848] Net M01_AXI_awqos in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:183]
-WARNING: [Synth 8-3848] Net M01_AXI_awregion in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:185]
-WARNING: [Synth 8-3848] Net M01_AXI_awsize in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:186]
-WARNING: [Synth 8-3848] Net M01_AXI_awuser in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:187]
-WARNING: [Synth 8-3848] Net M01_AXI_awvalid in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:188]
-WARNING: [Synth 8-3848] Net M01_AXI_bready in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:190]
-WARNING: [Synth 8-3848] Net M01_AXI_rready in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:197]
-WARNING: [Synth 8-3848] Net M01_AXI_wdata in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:201]
-WARNING: [Synth 8-3848] Net M01_AXI_wid in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:202]
-WARNING: [Synth 8-3848] Net M01_AXI_wlast in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:203]
-WARNING: [Synth 8-3848] Net M01_AXI_wstrb in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:205]
-WARNING: [Synth 8-3848] Net M01_AXI_wuser in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:206]
-WARNING: [Synth 8-3848] Net M01_AXI_wvalid in module/entity bd_afc3 does not have driver. [c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/bd_afc3.v:207]
 WARNING: [Synth 8-7129] Port src_clk in module xpm_cdc_single is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ENET0_GMII_COL in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ENET0_GMII_CRS in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
@@ -615,18 +560,18 @@ WARNING: [Synth 8-7129] Port RDADDRECC_I[1] in module blk_mem_output_block is ei
 WARNING: [Synth 8-7129] Port RDADDRECC_I[0] in module blk_mem_output_block is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1898.453 ; gain = 1062.359
+Finished RTL Elaboration : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 1935.789 ; gain = 1100.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1898.453 ; gain = 1062.359
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 1935.789 ; gain = 1100.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1898.453 ; gain = 1062.359
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 1935.789 ; gain = 1100.371
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1898.453 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1950.648 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 140 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -655,35 +600,37 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/Test_Top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Tetro/Tools/Vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Test_Top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/Test_Top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-INFO: [Project 1-1714] 48 XPM XDC files have been applied to the design.
+INFO: [Project 1-1714] 69 XPM XDC files have been applied to the design.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 2049.949 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.154 . Memory (MB): peak = 2234.797 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 7 instances were transformed.
   FDR => FDRE: 1 instance 
   MUXCY_L => MUXCY: 4 instances
   SRL16 => SRL16E: 2 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.613 . Memory (MB): peak = 2049.949 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2234.797 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 2049.949 ; gain = 1213.855
+Finished Constraint Validation : Time (s): cpu = 00:01:33 ; elapsed = 00:01:43 . Memory (MB): peak = 2235.809 ; gain = 1400.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 2049.949 ; gain = 1213.855
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:33 ; elapsed = 00:01:43 . Memory (MB): peak = 2235.809 ; gain = 1400.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 2049.949 ; gain = 1213.855
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:33 ; elapsed = 00:01:43 . Memory (MB): peak = 2235.809 ; gain = 1400.391
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_write_reg' in module 'AXI_Lite_PS_To_PL_PL_slave_lite_v1_0_S00_AXI'
+INFO: [Synth 8-802] inferred FSM for state register 'state_read_reg' in module 'AXI_Lite_PS_To_PL_PL_slave_lite_v1_0_S00_AXI'
 INFO: [Synth 8-802] inferred FSM for state register 'arb_sm_cs_reg' in module 'sng_port_arb'
 INFO: [Synth 8-802] inferred FSM for state register 'GEN_WDATA_SM_NO_ECC_SNG_REG_WREADY.wr_data_sng_sm_cs_reg' in module 'wr_chnl'
 INFO: [Synth 8-802] inferred FSM for state register 'GEN_NO_RD_CMD_OPT.rd_data_sm_cs_reg' in module 'rd_chnl'
@@ -694,6 +641,8 @@ INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_pipelined.state_r
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_pipelined.state_reg' through user attribute
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_AB_reg_slice.state_reg' through user attribute
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_AB_reg_slice.state_reg' through user attribute
+INFO: [Synth 8-802] inferred FSM for state register 'w_state_reg' in module 'sc_exit_v1_0_18_axilite_conv'
+INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'sc_exit_v1_0_18_axilite_conv'
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_pipelined.state_reg' through user attribute
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_pipelined.state_reg' through user attribute
 INFO: [Synth 8-802] inferred FSM for state register 'gen_axi.gen_write.write_cs_reg' in module 'sc_mmu_v1_0_16_decerr_slave'
@@ -711,8 +660,25 @@ INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'sc_
 INFO: [Synth 8-802] inferred FSM for state register 'rd_state_reg' in module 'sc_si_converter_v1_0_16_reduced_area'
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_pipelined.state_reg' through user attribute
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_pipelined.state_reg' through user attribute
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'sc_transaction_regulator_v1_0_12_multithread'
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_AB_reg_slice.state_reg' through user attribute
 INFO: [Synth 8-4490] FSM extraction disabled for register 'gen_AB_reg_slice.state_reg' through user attribute
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    Idle |                               00 |                               00
+                   Waddr |                               01 |                               10
+                   Wdata |                               10 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_write_reg' using encoding 'sequential' in module 'AXI_Lite_PS_To_PL_PL_slave_lite_v1_0_S00_AXI'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    Idle |                               00 |                               00
+                   Raddr |                               01 |                               10
+                   Rdata |                               10 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_read_reg' using encoding 'sequential' in module 'AXI_Lite_PS_To_PL_PL_slave_lite_v1_0_S00_AXI'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -753,6 +719,24 @@ INFO: [Synth 8-3354] encoded FSM with state register 'GEN_NO_RD_CMD_OPT.rd_data_
             w8_last_data |                              100 |                              100
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'GEN_NO_RD_CMD_OPT.rlast_sm_cs_reg' using encoding 'sequential' in module 'rd_chnl'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  W_IDLE |                              000 | 00000000000000000000000000000000
+                    W_RX |                              001 | 00000000000000000000000000000001
+                    W_TX |                              010 | 00000000000000000000000000000010
+              W_COMPLETE |                              011 | 00000000000000000000000000000100
+               W_RECOVER |                              100 | 00000000000000000000000000000011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'w_state_reg' using encoding 'sequential' in module 'sc_exit_v1_0_18_axilite_conv'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  R_IDLE |                               00 | 00000000000000000000000000000000
+                    R_RX |                               01 | 00000000000000000000000000000001
+                    R_TX |                               10 | 00000000000000000000000000000010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encoding 'sequential' in module 'sc_exit_v1_0_18_axilite_conv'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -836,8 +820,19 @@ INFO: [Synth 8-3354] encoded FSM with state register 'rd_state_reg' using encodi
                 AR_BURST |                               10 | 00000000000000000000000000000010
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'ar_state_reg' using encoding 'sequential' in module 'sc_si_converter_v1_0_16_reduced_area'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    INIT |                              000 | 00000000000000000000000000000000
+                    IDLE |                              001 | 00000000000000000000000000000001
+                DEADLOCK |                              010 | 00000000000000000000000000000010
+                OVERFLOW |                              011 | 00000000000000000000000000000100
+                ALLOCATE |                              100 | 00000000000000000000000000000011
+                 REFRESH |                              101 | 00000000000000000000000000000101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'sc_transaction_regulator_v1_0_12_multithread'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:52 ; elapsed = 00:00:55 . Memory (MB): peak = 2049.949 ; gain = 1213.855
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:40 ; elapsed = 00:01:51 . Memory (MB): peak = 2235.809 ; gain = 1400.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -865,6 +860,14 @@ WARNING: [Synth 8-13161] RAM (\design_1_wrapper_inst/design_1_i /axi_smc/inst/i_
 WARNING: [Synth 8-6014] Unused sequential element gen_wr_a.gen_word_narrow.mem_reg was removed. 
 WARNING: [Synth 8-13161] RAM (\design_1_wrapper_inst/design_1_i /axi_smc/inst/i_0/\m00_nodes/m00_w_node/inst /\inst_mi_handler/gen_normal_area.gen_node_prog_full.inst_node_prog_full/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory /xpm_memory_base_inst/i_0) is optimized away because it doesn't have any load.
 WARNING: [Synth 8-6014] Unused sequential element gen_wr_a.gen_word_narrow.mem_reg was removed. 
+WARNING: [Synth 8-13161] RAM (\design_1_wrapper_inst/design_1_i /axi_smc/inst/i_0/\m01_nodes/m01_ar_node/inst /\inst_mi_handler/gen_normal_area.gen_node_prog_full.inst_node_prog_full/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory /xpm_memory_base_inst/i_0) is optimized away because it doesn't have any load.
+WARNING: [Synth 8-6014] Unused sequential element gen_wr_a.gen_word_narrow.mem_reg was removed. 
+WARNING: [Synth 8-13161] RAM (\design_1_wrapper_inst/design_1_i /axi_smc/inst/i_0/\m01_nodes/m01_aw_node/inst /\inst_mi_handler/gen_normal_area.gen_node_prog_full.inst_node_prog_full/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory /xpm_memory_base_inst/i_0) is optimized away because it doesn't have any load.
+WARNING: [Synth 8-6014] Unused sequential element gen_wr_a.gen_word_narrow.mem_reg was removed. 
+WARNING: [Synth 8-13161] RAM (\design_1_wrapper_inst/design_1_i /axi_smc/inst/i_0/\m01_nodes/m01_b_node/inst /\inst_mi_handler/gen_normal_area.gen_fifo_req.inst_fifo_req/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory /xpm_memory_base_inst/i_0) is optimized away because it doesn't have any load.
+WARNING: [Synth 8-6014] Unused sequential element gen_wr_a.gen_word_narrow.mem_reg was removed. 
+WARNING: [Synth 8-13161] RAM (\design_1_wrapper_inst/design_1_i /axi_smc/inst/i_0/\m01_nodes/m01_w_node/inst /\inst_mi_handler/gen_normal_area.gen_node_prog_full.inst_node_prog_full/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory /xpm_memory_base_inst/i_0) is optimized away because it doesn't have any load.
+WARNING: [Synth 8-6014] Unused sequential element gen_wr_a.gen_word_narrow.mem_reg was removed. 
 WARNING: [Synth 8-13161] RAM (\design_1_wrapper_inst/design_1_i /axi_smc/inst/i_0/\s00_nodes/s00_b_node/inst /\inst_mi_handler/gen_normal_area.gen_node_prog_full.inst_node_prog_full/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory /xpm_memory_base_inst/i_0) is optimized away because it doesn't have any load.
 WARNING: [Synth 8-6014] Unused sequential element gen_wr_a.gen_word_narrow.mem_reg was removed. 
 WARNING: [Synth 8-13161] RAM (\design_1_wrapper_inst/design_1_i /axi_smc/inst/i_0/\s00_nodes/s00_r_node/inst /\inst_mi_handler/gen_normal_area.gen_node_prog_full.inst_node_prog_full/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory /xpm_memory_base_inst/i_0) is optimized away because it doesn't have any load.
@@ -879,25 +882,25 @@ WARNING: [Synth 8-3332] Sequential element (BSR_OUT_DFF[0].FDRE_BSR) is unused a
 WARNING: [Synth 8-3332] Sequential element (ACTIVE_LOW_BSR_OUT_DFF[0].FDRE_BSR_N) is unused and will be removed from module proc_sys_reset__parameterized1.
 WARNING: [Synth 8-3332] Sequential element (PR_OUT_DFF[0].FDRE_PER) is unused and will be removed from module proc_sys_reset__parameterized1.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:23 ; elapsed = 00:01:27 . Memory (MB): peak = 2049.949 ; gain = 1213.855
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:03 ; elapsed = 00:03:19 . Memory (MB): peak = 2235.809 ; gain = 1400.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 2177.695 ; gain = 1341.602
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:09 ; elapsed = 00:03:25 . Memory (MB): peak = 2302.699 ; gain = 1467.281
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:34 ; elapsed = 00:01:39 . Memory (MB): peak = 2289.945 ; gain = 1453.852
+Finished Timing Optimization : Time (s): cpu = 00:03:18 ; elapsed = 00:03:35 . Memory (MB): peak = 2413.242 ; gain = 1577.824
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:37 ; elapsed = 00:01:41 . Memory (MB): peak = 2289.945 ; gain = 1453.852
+Finished Technology Mapping : Time (s): cpu = 00:03:25 ; elapsed = 00:03:45 . Memory (MB): peak = 2413.242 ; gain = 1577.824
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -915,37 +918,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:40 ; elapsed = 00:01:45 . Memory (MB): peak = 2432.832 ; gain = 1596.738
+Finished IO Insertion : Time (s): cpu = 00:03:31 ; elapsed = 00:03:50 . Memory (MB): peak = 2548.562 ; gain = 1713.145
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:40 ; elapsed = 00:01:45 . Memory (MB): peak = 2432.832 ; gain = 1596.738
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:31 ; elapsed = 00:03:50 . Memory (MB): peak = 2548.562 ; gain = 1713.145
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:41 ; elapsed = 00:01:45 . Memory (MB): peak = 2432.832 ; gain = 1596.738
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:32 ; elapsed = 00:03:52 . Memory (MB): peak = 2548.562 ; gain = 1713.145
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:41 ; elapsed = 00:01:45 . Memory (MB): peak = 2432.832 ; gain = 1596.738
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:32 ; elapsed = 00:03:52 . Memory (MB): peak = 2548.562 ; gain = 1713.145
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:41 ; elapsed = 00:01:45 . Memory (MB): peak = 2432.832 ; gain = 1596.738
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:32 ; elapsed = 00:03:52 . Memory (MB): peak = 2548.562 ; gain = 1713.145
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:41 ; elapsed = 00:01:45 . Memory (MB): peak = 2432.832 ; gain = 1596.738
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:32 ; elapsed = 00:03:52 . Memory (MB): peak = 2548.562 ; gain = 1713.145
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -963,53 +966,52 @@ Report Cell Usage:
 +------+---------+------+
 |1     |BIBUF    |   130|
 |2     |BUFG     |     1|
-|3     |CARRY4   |    30|
-|4     |LUT1     |   189|
-|5     |LUT2     |   284|
-|6     |LUT3     |   628|
-|7     |LUT4     |   388|
-|8     |LUT5     |   414|
-|9     |LUT6     |   698|
-|10    |MUXF7    |     1|
-|11    |ODDR     |     1|
-|12    |PS7      |     1|
-|13    |RAM32M   |    47|
-|14    |RAM32X1D |     9|
-|15    |RAMB36E1 |   128|
-|17    |SRL16    |     2|
-|18    |SRL16E   |    36|
-|19    |SRLC32E  |     9|
-|20    |FDCE     |    72|
-|21    |FDRE     |  2430|
-|22    |FDSE     |   142|
-|23    |IBUF     |    13|
-|24    |OBUF     |     2|
+|3     |CARRY4   |    41|
+|4     |LUT1     |   258|
+|5     |LUT2     |   384|
+|6     |LUT3     |  1062|
+|7     |LUT4     |   523|
+|8     |LUT5     |   688|
+|9     |LUT6     |  1183|
+|10    |ODDR     |     1|
+|11    |PS7      |     1|
+|12    |RAM32M   |    72|
+|13    |RAM32X1D |     9|
+|14    |RAMB36E1 |   128|
+|16    |SRL16    |     2|
+|17    |SRL16E   |    28|
+|18    |SRLC32E  |     9|
+|19    |FDCE     |   151|
+|20    |FDRE     |  3693|
+|21    |FDSE     |   192|
+|22    |IBUF     |    13|
+|23    |OBUF     |     2|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:41 ; elapsed = 00:01:45 . Memory (MB): peak = 2432.832 ; gain = 1596.738
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:32 ; elapsed = 00:03:52 . Memory (MB): peak = 2548.562 ; gain = 1713.145
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 2153 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:57 ; elapsed = 00:01:27 . Memory (MB): peak = 2432.832 ; gain = 1445.242
-Synthesis Optimization Complete : Time (s): cpu = 00:01:41 ; elapsed = 00:01:46 . Memory (MB): peak = 2432.832 ; gain = 1596.738
+Synthesis finished with 0 errors, 0 critical warnings and 2090 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:09 ; elapsed = 00:03:10 . Memory (MB): peak = 2548.562 ; gain = 1413.125
+Synthesis Optimization Complete : Time (s): cpu = 00:03:33 ; elapsed = 00:03:53 . Memory (MB): peak = 2548.562 ; gain = 1713.145
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.263 . Memory (MB): peak = 2438.953 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 218 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.482 . Memory (MB): peak = 2563.461 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 253 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2447.645 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 2572.156 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 58 instances were transformed.
-  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 47 instances
+  A total of 83 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 72 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 9 instances
   SRL16 => SRL16E: 2 instances
 
-Synth Design complete | Checksum: dd5a9785
+Synth Design complete | Checksum: 3b7d0eca
 INFO: [Common 17-83] Releasing license: Synthesis
-319 Infos, 217 Warnings, 0 Critical Warnings and 0 Errors encountered.
+348 Infos, 149 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:47 ; elapsed = 00:01:55 . Memory (MB): peak = 2447.645 ; gain = 1851.469
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2447.645 ; gain = 0.000
+synth_design: Time (s): cpu = 00:03:43 ; elapsed = 00:04:08 . Memory (MB): peak = 2572.156 ; gain = 1974.352
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 2572.156 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.runs/synth_1/Test_Top.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file Test_Top_utilization_synth.rpt -pb Test_Top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Apr 16 13:17:01 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri Apr 17 13:00:02 2026...

@@ -57,6 +57,7 @@ if {$::dispatch::connected} {
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param general.usePosixSpawnForFork 1
+set_param chipscope.maxJobs 8
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -69,6 +70,8 @@ set_property parent.project_path C:/Users/Tetro/Documents/FPGA_Project/MyExample
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property ip_repo_paths c:/Users/Tetro/Documents/FPGA_Project/MyExample/ip_repo/AXI_Lite_PS_To_PL_PL_1_0 [current_project]
+update_ip_catalog
 set_property ip_output_repo c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
@@ -76,7 +79,7 @@ OPTRACE "Adding files" START { }
 add_files C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/imports/ROM_mif/wave_rom.coe
 read_verilog -library xil_defaultlib {
   C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/bram_ctrl_my.v
-  c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+  C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
   C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/new/top.v
 }
 add_files C:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.srcs/sources_1/bd/design_1/design_1.bd
@@ -100,6 +103,12 @@ set_property used_in_implementation false [get_files -all c:/Users/Tetro/Documen
 set_property used_in_implementation false [get_files -all c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_19/bd_afc3_m00awn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_20/bd_afc3_m00wn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_21/bd_afc3_m00bn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_23/bd_afc3_m01s2a_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_24/bd_afc3_m01arn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_25/bd_afc3_m01rn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_26/bd_afc3_m01awn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_27/bd_afc3_m01wn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_28/bd_afc3_m01bn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/smartconnect.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_50M_0/design_1_rst_ps7_0_50M_0_board.xdc]

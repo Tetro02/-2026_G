@@ -152,6 +152,7 @@ include_folder: include
 lib_folder: lib
 libsrc_folder: libsrc
 drv_info:
+  AXI_Lite_PS_To_PL_PL_0: None
   axi_bram_ctrl_0:
     driver: bram
     ip_name: axi_bram_ctrl

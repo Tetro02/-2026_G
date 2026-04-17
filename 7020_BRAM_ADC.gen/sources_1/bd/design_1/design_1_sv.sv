@@ -116,7 +116,9 @@ module design_1_sv (
   (* X_INTERFACE_IGNORE = "true" *)
   input wire [3:0] web_0,
   (* X_INTERFACE_IGNORE = "true" *)
-  input wire [0:0] IRQ_F2P_0
+  input wire [0:0] IRQ_F2P_0,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire [31:0] slv_reg0_o_0
 );
 
   design_1 inst (
@@ -151,7 +153,8 @@ module design_1_sv (
     .doutb_0(doutb_0),
     .enb_0(enb_0),
     .web_0(web_0),
-    .IRQ_F2P_0(IRQ_F2P_0)
+    .IRQ_F2P_0(IRQ_F2P_0),
+    .slv_reg0_o_0(slv_reg0_o_0)
   );
 
 endmodule

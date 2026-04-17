@@ -84,11 +84,35 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_ax
 # IP: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_22/bd_afc3_m00e_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
+# IP: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_23/bd_afc3_m01s2a_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_24/bd_afc3_m01arn_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_25/bd_afc3_m01rn_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_26/bd_afc3_m01awn_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_27/bd_afc3_m01wn_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_28/bd_afc3_m01bn_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_29/bd_afc3_m01e_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
 # IP: bd/design_1/ip/design_1_rst_ps7_0_50M_0/design_1_rst_ps7_0_50M_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_rst_ps7_0_50M_0 || ORIG_REF_NAME==design_1_rst_ps7_0_50M_0} -quiet] -quiet
 
 # IP: bd/design_1/ip/design_1_axi_bram_ctrl_0_0/design_1_axi_bram_ctrl_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_axi_bram_ctrl_0_0 || ORIG_REF_NAME==design_1_axi_bram_ctrl_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_AXI_Lite_PS_To_PL_PL_0_0/design_1_AXI_Lite_PS_To_PL_PL_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_AXI_Lite_PS_To_PL_PL_0_0 || ORIG_REF_NAME==design_1_AXI_Lite_PS_To_PL_PL_0_0} -quiet] -quiet
 
 # XDC: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_0_1/design_1_processing_system7_0_0.xdc
 set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_processing_system7_0_0 || ORIG_REF_NAME==design_1_processing_system7_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
@@ -131,6 +155,18 @@ set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filte
 # XDC: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_20/bd_afc3_m00wn_0_ooc.xdc
 
 # XDC: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_21/bd_afc3_m00bn_0_ooc.xdc
+
+# XDC: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_23/bd_afc3_m01s2a_0_ooc.xdc
+
+# XDC: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_24/bd_afc3_m01arn_0_ooc.xdc
+
+# XDC: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_25/bd_afc3_m01rn_0_ooc.xdc
+
+# XDC: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_26/bd_afc3_m01awn_0_ooc.xdc
+
+# XDC: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_27/bd_afc3_m01wn_0_ooc.xdc
+
+# XDC: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_28/bd_afc3_m01bn_0_ooc.xdc
 
 # XDC: c:/Users/Tetro/Documents/FPGA_Project/MyExample/7020_BRAM_ADC/7020_BRAM_ADC.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/ooc.xdc
 
