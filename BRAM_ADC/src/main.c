@@ -9,7 +9,7 @@
 
 #define ADC_START_ADDR (LITE_ADDR + 0x00) // ADC启动寄存器地址
 #define LITE1_ADDR (LITE_ADDR + 0x04)     // 空闲寄存器地址（可选，暂未使用）
-#define LITE2_ADDR (LITE_ADDR + 0x08)
+#define LITE2_ADDR (LITE_ADDR + 0x08)     // 空闲寄存器地址（可选，暂未使用）
 #define LITE3_ADDR (LITE_ADDR + 0x0C)
 
 // ===== 中断相关 =====
