@@ -10,11 +10,11 @@
 
 // ========== FFT & ADC 核心参数 ==========
 #define FFT_LENGTH 4096
-#define SAMPLE_FREQ 299401.1976047f
+#define SAMPLE_FREQ 299401.1976047f // 你的采样率
 #define SIGNAL_FREQ 50000.0f
 #define ADC_BIAS 2048.0f                // ADC 0V偏置
 #define ADC_V_RANGE 5.0f                // 单极性电压范围 ±5V
-#define ADC_RES (ADC_V_RANGE / 2048.0f) // 电压分辨率 ≈0.0024414V
+#define ADC_RES (ADC_V_RANGE / 2048.0f) // 电压分辨率
 #define HAMMING_CORRECT 1.85f           // 汉明窗幅值校正系数
 
 // ===================== 全局大数组（全部放在这里）=====================
@@ -48,13 +48,17 @@ void generate_hamming_window(float32_t *window, uint32_t length)
 }
 
 // ==============================================================================
-// FFT处理函数：仅使用窗函数，不重复生成
+// FFT处理函数：峰值检测 + 幅值计算
 // ==============================================================================
 void test_fft_adc(void)
 {
     arm_cfft_instance_f32 fft_inst;
-    float freq_res = SAMPLE_FREQ / FFT_LENGTH;
+    float freq_res = SAMPLE_FREQ / FFT_LENGTH; // 频率分辨率
     int i;
+    // 峰值检测变量
+    float max_mag = 0.0f;
+    int max_index = 0;
+    float peak_freq, peak_digital_amp, peak_voltage_amp;
 
     // 清空FFT输入数组
     memset(fft_in, 0, sizeof(fft_in));
@@ -62,17 +66,11 @@ void test_fft_adc(void)
     // ========== 数据预处理：模拟ADC + 去偏置 + 汉明窗 ==========
     for (i = 0; i < FFT_LENGTH; i++)
     {
-        // 1. 生成50kHz正弦波（1V幅值）
         float t = (float)i / SAMPLE_FREQ;
         float adc_voltage = 1.0f * arm_sin_f32(2.0f * PI * SIGNAL_FREQ * t);
-
-        // 2. 转换为ADC原始值（0~4095）
         uint16_t adc_raw = (uint16_t)(ADC_BIAS + (adc_voltage / ADC_RES));
-
-        // 3. 去除ADC直流偏置（2048=0V）
         float adc_real = (float)adc_raw - ADC_BIAS;
 
-        // 4. 直接使用全局汉明窗（复用，不重复计算）
         fft_in[2 * i] = adc_real * hamming_window[i];
         fft_in[2 * i + 1] = 0.0f;
     }
@@ -82,33 +80,50 @@ void test_fft_adc(void)
     arm_cfft_f32(&fft_inst, fft_in, 0, 1);
     arm_cmplx_mag_f32(fft_in, fft_mag, FFT_LENGTH);
 
-    // ========== 幅值换算 + 打印 ==========
+    // ========== 幅值计算 + 搜索最大峰值 ==========
     printf("\n========== ADC(±5V,2048=0V) FFT + 汉明窗 ==========\n");
-
     for (i = 0; i < FFT_LENGTH / 2; i++)
     {
         float digital_amp;
-        float voltage_amp;
-
         // 归一化处理
         if (i == 0)
         {
-            // 直流分量
             digital_amp = fft_mag[i] / 4096.0f;
         }
         else
         {
-            // 交流分量 + 汉明窗校正
             digital_amp = fft_mag[i] / 2048.0f;
             digital_amp *= HAMMING_CORRECT;
         }
 
-        // 转换为真实物理电压
-        voltage_amp = digital_amp * ADC_RES;
+        // 搜索FFT最大模值峰值（原始模值）
+        if (fft_mag[i] > max_mag)
+        {
+            max_mag = fft_mag[i];
+            max_index = i;
+        }
 
-        // 打印原始模值（你保留的打印逻辑）
+        // 保留你原有的打印逻辑
         printf("%.4f\n", fft_mag[i]);
     }
+
+    // ========== 计算峰值的频率、数字幅值、电压幅值 ==========
+    peak_freq = max_index * freq_res;
+    // 计算峰值对应的校正后幅值
+    if (max_index == 0)
+    {
+        peak_digital_amp = max_mag / 4096.0f;
+    }
+    else
+    {
+        peak_digital_amp = max_mag / 2048.0f;
+        peak_digital_amp *= HAMMING_CORRECT;
+    }
+    peak_voltage_amp = peak_digital_amp * ADC_RES;
+
+    // ========== 打印峰值结果（核心新增功能） ==========
+    printf("峰值频率: %.2f Hz；峰值数字幅值: %.2f；峰值真实电压: %.4f V\n", peak_freq, peak_digital_amp, peak_voltage_amp);
+    printf("=======================================\n");
 }
 
 // ==============================================================================
@@ -126,12 +141,12 @@ void psWriteBram(void)
 
 void psReadBram(void)
 {
-    printf("This is psReadBram function\r\n");
-    for (int i = 0; i < 4096; i++)
+    // printf("This is psReadBram function\r\n");
+    for (int i = 0; i < FFT_LENGTH; i++)
     {
         dataOut[i] = Xil_In32(BRAM_ADDR + i * 4);
     }
-    printf("\r\n");
+    // printf("\r\n");
 }
 
 // ==============================================================================
@@ -195,7 +210,7 @@ int main(void)
 {
     printf("PL IRQ + ADC FFT + Hamming Window Test Start\r\n");
 
-    // ===================== 汉明窗只生成1次 =====================
+    // 汉明窗只生成1次
     generate_hamming_window(hamming_window, FFT_LENGTH);
 
     // 初始化中断系统
@@ -205,13 +220,13 @@ int main(void)
     Xil_Out32(ADC_START_ADDR, 0);
     Xil_Out32(ADC_START_ADDR, 0);
 
-    // 执行FFT测试（复用汉明窗）
+    // 执行FFT测试（自动检测峰值）
     test_fft_adc();
 
     // 主循环
     while (1)
     {
-        // 后续多次调用test_fft_adc()，都不会重复生成窗函数
+        // 重复调用也只会复用窗函数
         // test_fft_adc();
     }
 
