@@ -10,17 +10,18 @@
 
 // ========== FFT & ADC 核心参数 ==========
 #define FFT_LENGTH 4096
-#define SAMPLE_FREQ 1000000.0f
+#define SAMPLE_FREQ 299401.1976047f
 #define SIGNAL_FREQ 50000.0f
 #define ADC_BIAS 2048.0f                // ADC 0V偏置
 #define ADC_V_RANGE 5.0f                // 单极性电压范围 ±5V
 #define ADC_RES (ADC_V_RANGE / 2048.0f) // 电压分辨率 ≈0.0024414V
 #define HAMMING_CORRECT 1.85f           // 汉明窗幅值校正系数
 
-// ========== FFT & 窗函数 数组 ==========
-float32_t fft_in[FFT_LENGTH * 2];
-float32_t fft_mag[FFT_LENGTH];
-float32_t hamming_window[FFT_LENGTH]; // 汉明窗数组
+// ===================== 全局大数组（全部放在这里）=====================
+float32_t fft_in[FFT_LENGTH * 2];     // FFT输入数组（全局）
+float32_t fft_mag[FFT_LENGTH];        // FFT模值数组（全局）
+float32_t hamming_window[FFT_LENGTH]; // 汉明窗数组（全局，仅生成1次）
+int dataOut[FFT_LENGTH];              // BRAM读取缓存（全局）
 
 // ========== BRAM / AXI 地址定义 ==========
 #define BRAM_ADDR XPAR_AXI_BRAM_CTRL_0_BASEADDR
@@ -33,11 +34,10 @@ float32_t hamming_window[FFT_LENGTH]; // 汉明窗数组
 // ========== 中断配置 ==========
 #define INTC_DEVICE_ID XPAR_SCUGIC_SINGLE_DEVICE_ID
 #define PL_IRQ_ID 61
-XScuGic Intc;
-int dataOut[4096]; // BRAM读取缓存
+XScuGic Intc; // 中断控制器（全局）
 
 // ==============================================================================
-// 手动生成汉明窗（修复cosf链接错误，不依赖CMSIS库函数）
+// 手动生成汉明窗（仅初始化调用1次）
 // ==============================================================================
 void generate_hamming_window(float32_t *window, uint32_t length)
 {
@@ -48,7 +48,7 @@ void generate_hamming_window(float32_t *window, uint32_t length)
 }
 
 // ==============================================================================
-// 函数：带汉明窗的ADC FFT处理
+// FFT处理函数：仅使用窗函数，不重复生成
 // ==============================================================================
 void test_fft_adc(void)
 {
@@ -56,8 +56,6 @@ void test_fft_adc(void)
     float freq_res = SAMPLE_FREQ / FFT_LENGTH;
     int i;
 
-    // 手动生成汉明窗（无依赖，无报错）
-    generate_hamming_window(hamming_window, FFT_LENGTH);
     // 清空FFT输入数组
     memset(fft_in, 0, sizeof(fft_in));
 
@@ -74,7 +72,7 @@ void test_fft_adc(void)
         // 3. 去除ADC直流偏置（2048=0V）
         float adc_real = (float)adc_raw - ADC_BIAS;
 
-        // 4. 加汉明窗
+        // 4. 直接使用全局汉明窗（复用，不重复计算）
         fft_in[2 * i] = adc_real * hamming_window[i];
         fft_in[2 * i + 1] = 0.0f;
     }
@@ -90,6 +88,7 @@ void test_fft_adc(void)
     for (i = 0; i < FFT_LENGTH / 2; i++)
     {
         float digital_amp;
+        float voltage_amp;
 
         // 归一化处理
         if (i == 0)
@@ -101,12 +100,13 @@ void test_fft_adc(void)
         {
             // 交流分量 + 汉明窗校正
             digital_amp = fft_mag[i] / 2048.0f;
-            digital_amp *= HAMMING_CORRECT; // hamming_correct=1.85f，补偿汉明窗引入的幅值损失
+            digital_amp *= HAMMING_CORRECT;
         }
 
         // 转换为真实物理电压
-        float voltage_amp = digital_amp * ADC_RES;
+        voltage_amp = digital_amp * ADC_RES;
 
+        // 打印原始模值（你保留的打印逻辑）
         printf("%.4f\n", fft_mag[i]);
     }
 }
@@ -195,6 +195,9 @@ int main(void)
 {
     printf("PL IRQ + ADC FFT + Hamming Window Test Start\r\n");
 
+    // ===================== 汉明窗只生成1次 =====================
+    generate_hamming_window(hamming_window, FFT_LENGTH);
+
     // 初始化中断系统
     SetupInterruptSystem();
     SetupPLInterrupt();
@@ -202,12 +205,14 @@ int main(void)
     Xil_Out32(ADC_START_ADDR, 0);
     Xil_Out32(ADC_START_ADDR, 0);
 
-    // 执行FFT测试
+    // 执行FFT测试（复用汉明窗）
     test_fft_adc();
 
     // 主循环
     while (1)
     {
+        // 后续多次调用test_fft_adc()，都不会重复生成窗函数
+        // test_fft_adc();
     }
 
     return 0;
