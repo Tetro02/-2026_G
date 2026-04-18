@@ -66,11 +66,8 @@ void test_fft_adc(void)
     // ========== 数据预处理：模拟ADC + 去偏置 + 汉明窗 ==========
     for (i = 0; i < FFT_LENGTH; i++)
     {
-        float t = (float)i / SAMPLE_FREQ;
-        float adc_voltage = 1.0f * arm_sin_f32(2.0f * PI * SIGNAL_FREQ * t);
-        uint16_t adc_raw = (uint16_t)(ADC_BIAS + (adc_voltage / ADC_RES));
+        uint16_t adc_raw = dataOut[i];
         float adc_real = (float)adc_raw - ADC_BIAS;
-
         fft_in[2 * i] = adc_real * hamming_window[i];
         fft_in[2 * i + 1] = 0.0f;
     }
@@ -81,7 +78,7 @@ void test_fft_adc(void)
     arm_cmplx_mag_f32(fft_in, fft_mag, FFT_LENGTH);
 
     // ========== 幅值计算 + 搜索最大峰值 ==========
-    printf("\n========== ADC(±5V,2048=0V) FFT + 汉明窗 ==========\n");
+    // printf("\n========== ADC(±5V,2048=0V) FFT + 汉明窗 ==========\n");
     for (i = 0; i < FFT_LENGTH / 2; i++)
     {
         float digital_amp;
@@ -104,7 +101,7 @@ void test_fft_adc(void)
         }
 
         // 保留你原有的打印逻辑
-        printf("%.4f\n", fft_mag[i]);
+        // printf("%.4f\n", fft_mag[i]);
     }
 
     // ========== 计算峰值的频率、数字幅值、电压幅值 ==========
@@ -122,8 +119,7 @@ void test_fft_adc(void)
     peak_voltage_amp = peak_digital_amp * ADC_RES;
 
     // ========== 打印峰值结果（核心新增功能） ==========
-    printf("峰值频率: %.2f Hz；峰值数字幅值: %.2f；峰值真实电压: %.4f V\n", peak_freq, peak_digital_amp, peak_voltage_amp);
-    printf("=======================================\n");
+    printf("峰值频率: %.2f Hz; 峰值数字幅值: %.2f; 峰值真实电压: %.4f V\n", peak_freq, peak_digital_amp, peak_voltage_amp);
 }
 
 // ==============================================================================
@@ -156,7 +152,8 @@ void PL_IRQHandler(void *CallbackRef)
 {
     (void)CallbackRef;
     Xil_Out32(ADC_START_ADDR, 0);
-    psReadBram();
+    psReadBram();   // 从BRAM读取数据到全局数组
+    test_fft_adc(); // 执行FFT测试（自动检测峰值）
     Xil_Out32(ADC_START_ADDR, 1);
 }
 
@@ -208,7 +205,7 @@ int SetupPLInterrupt(void)
 // ==============================================================================
 int main(void)
 {
-    printf("PL IRQ + ADC FFT + Hamming Window Test Start\r\n");
+    // printf("PL IRQ + ADC FFT + Hamming Window Test Start\r\n");
 
     // 汉明窗只生成1次
     generate_hamming_window(hamming_window, FFT_LENGTH);
@@ -218,10 +215,7 @@ int main(void)
     SetupPLInterrupt();
 
     Xil_Out32(ADC_START_ADDR, 0);
-    Xil_Out32(ADC_START_ADDR, 0);
-
-    // 执行FFT测试（自动检测峰值）
-    test_fft_adc();
+    Xil_Out32(ADC_START_ADDR, 1);
 
     // 主循环
     while (1)
