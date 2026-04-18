@@ -9,8 +9,8 @@
 
 #define ADC_START_ADDR (LITE_ADDR + 0x00) // ADC启动寄存器地址
 #define LITE1_ADDR (LITE_ADDR + 0x04)     // 空闲寄存器地址（可选，暂未使用）
-#define LITE2_ADDR (LITE_ADDR + 0x08)
-#define LITE3_ADDR (LITE_ADDR + 0x0C) // 空闲寄存器地址（可选，暂未使用）
+#define LITE2_ADDR (LITE_ADDR + 0x08)     // 空闲寄存器地址（可选，暂未使用）
+#define LITE3_ADDR (LITE_ADDR + 0x0C)     // 空闲寄存器地址（可选，暂未使用）
 
 // ===== 中断相关 =====
 #define INTC_DEVICE_ID XPAR_SCUGIC_SINGLE_DEVICE_ID // GIC设备ID
