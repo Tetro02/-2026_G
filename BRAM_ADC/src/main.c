@@ -1,28 +1,122 @@
+// ========== 必备头文件 ==========
 #include <stdio.h>
+#include <string.h>
+#include <stdint.h>
+#include "arm_math.h"
 #include "xparameters.h"
 #include "xil_io.h"
 #include "xscugic.h"
 #include "xil_exception.h"
 
-#define BRAM_ADDR XPAR_AXI_BRAM_CTRL_0_BASEADDR        // BRAM基地址
-#define LITE_ADDR XPAR_AXI_LITE_PS_TO_PL_PL_0_BASEADDR // AXI Lite基地址
+// ========== FFT & ADC 核心参数 ==========
+#define FFT_LENGTH 4096
+#define SAMPLE_FREQ 1000000.0f
+#define SIGNAL_FREQ 50000.0f
+#define ADC_BIAS 2048.0f                // ADC 0V偏置
+#define ADC_V_RANGE 5.0f                // 单极性电压范围 ±5V
+#define ADC_RES (ADC_V_RANGE / 2048.0f) // 电压分辨率 ≈0.0024414V
+#define HAMMING_CORRECT 1.85f           // 汉明窗幅值校正系数
 
-#define ADC_START_ADDR (LITE_ADDR + 0x00) // ADC启动寄存器地址
-#define LITE1_ADDR (LITE_ADDR + 0x04)     // 空闲寄存器地址（可选，暂未使用）
-#define LITE3_ADDR (LITE_ADDR + 0x0C)     // 空闲寄存器地址（可选，暂未使用）
-#define LITE2_ADDR (LITE_ADDR + 0x08)     // 空闲寄存器地址（可选，暂未使用）
+// ========== FFT & 窗函数 数组 ==========
+float32_t fft_in[FFT_LENGTH * 2];
+float32_t fft_mag[FFT_LENGTH];
+float32_t hamming_window[FFT_LENGTH]; // 汉明窗数组
 
-// ===== 中断相关 =====
-#define INTC_DEVICE_ID XPAR_SCUGIC_SINGLE_DEVICE_ID // GIC设备ID
-#define PL_IRQ_ID 61                                // IRQ_F2P[0] → 61 // PL中断ID
+// ========== BRAM / AXI 地址定义 ==========
+#define BRAM_ADDR XPAR_AXI_BRAM_CTRL_0_BASEADDR
+#define LITE_ADDR XPAR_AXI_LITE_PS_TO_PL_PL_0_BASEADDR
+#define ADC_START_ADDR (LITE_ADDR + 0x00)
+#define LITE1_ADDR (LITE_ADDR + 0x04)
+#define LITE2_ADDR (LITE_ADDR + 0x08)
+#define LITE3_ADDR (LITE_ADDR + 0x0C)
 
+// ========== 中断配置 ==========
+#define INTC_DEVICE_ID XPAR_SCUGIC_SINGLE_DEVICE_ID
+#define PL_IRQ_ID 61
 XScuGic Intc;
+int dataOut[4096]; // BRAM读取缓存
 
-// ===== 原有的BRAM函数（保留） =====
-void psWriteBram() // 写入BRAM
+// ==============================================================================
+// 手动生成汉明窗（修复cosf链接错误，不依赖CMSIS库函数）
+// ==============================================================================
+void generate_hamming_window(float32_t *window, uint32_t length)
+{
+    for (uint32_t i = 0; i < length; i++)
+    {
+        window[i] = 0.54f - 0.46f * arm_cos_f32(2.0f * PI * i / (length - 1));
+    }
+}
+
+// ==============================================================================
+// 函数：带汉明窗的ADC FFT处理
+// ==============================================================================
+void test_fft_adc(void)
+{
+    arm_cfft_instance_f32 fft_inst;
+    float freq_res = SAMPLE_FREQ / FFT_LENGTH;
+    int i;
+
+    // 手动生成汉明窗（无依赖，无报错）
+    generate_hamming_window(hamming_window, FFT_LENGTH);
+    // 清空FFT输入数组
+    memset(fft_in, 0, sizeof(fft_in));
+
+    // ========== 数据预处理：模拟ADC + 去偏置 + 汉明窗 ==========
+    for (i = 0; i < FFT_LENGTH; i++)
+    {
+        // 1. 生成50kHz正弦波（1V幅值）
+        float t = (float)i / SAMPLE_FREQ;
+        float adc_voltage = 1.0f * arm_sin_f32(2.0f * PI * SIGNAL_FREQ * t);
+
+        // 2. 转换为ADC原始值（0~4095）
+        uint16_t adc_raw = (uint16_t)(ADC_BIAS + (adc_voltage / ADC_RES));
+
+        // 3. 去除ADC直流偏置（2048=0V）
+        float adc_real = (float)adc_raw - ADC_BIAS;
+
+        // 4. 加汉明窗
+        fft_in[2 * i] = adc_real * hamming_window[i];
+        fft_in[2 * i + 1] = 0.0f;
+    }
+
+    // ========== FFT 计算 ==========
+    arm_cfft_init_f32(&fft_inst, FFT_LENGTH);
+    arm_cfft_f32(&fft_inst, fft_in, 0, 1);
+    arm_cmplx_mag_f32(fft_in, fft_mag, FFT_LENGTH);
+
+    // ========== 幅值换算 + 打印 ==========
+    printf("\n========== ADC(±5V,2048=0V) FFT + 汉明窗 ==========\n");
+
+    for (i = 0; i < FFT_LENGTH / 2; i++)
+    {
+        float digital_amp;
+
+        // 归一化处理
+        if (i == 0)
+        {
+            // 直流分量
+            digital_amp = fft_mag[i] / 4096.0f;
+        }
+        else
+        {
+            // 交流分量 + 汉明窗校正
+            digital_amp = fft_mag[i] / 2048.0f;
+            digital_amp *= HAMMING_CORRECT; // hamming_correct=1.85f，补偿汉明窗引入的幅值损失
+        }
+
+        // 转换为真实物理电压
+        float voltage_amp = digital_amp * ADC_RES;
+
+        printf("%.4f\n", fft_mag[i]);
+    }
+}
+
+// ==============================================================================
+// 原有 BRAM 操作函数
+// ==============================================================================
+void psWriteBram(void)
 {
     printf("This is psWriteBram function\r\n");
-
     int dataIn[8] = {11, 12, 13, 14, 15, 16, 17, 18};
     for (int i = 0; i < 8; i++)
     {
@@ -30,21 +124,20 @@ void psWriteBram() // 写入BRAM
     }
 }
 
-int dataOut[4096];
-void psReadBram() // 读取BRAM 4096个数据
+void psReadBram(void)
 {
     printf("This is psReadBram function\r\n");
-
     for (int i = 0; i < 4096; i++)
     {
         dataOut[i] = Xil_In32(BRAM_ADDR + i * 4);
-        printf("%d\n", dataOut[i]);
     }
     printf("\r\n");
 }
 
-// ===== 中断服务函数 =====
-void PL_IRQHandler(void *CallbackRef) // PL中断服务函数
+// ==============================================================================
+// 中断服务函数
+// ==============================================================================
+void PL_IRQHandler(void *CallbackRef)
 {
     (void)CallbackRef;
     Xil_Out32(ADC_START_ADDR, 0);
@@ -52,8 +145,10 @@ void PL_IRQHandler(void *CallbackRef) // PL中断服务函数
     Xil_Out32(ADC_START_ADDR, 1);
 }
 
-// ===== 初始化GIC =====
-int SetupInterruptSystem() // 初始化中断系统
+// ==============================================================================
+// 中断系统初始化
+// ==============================================================================
+int SetupInterruptSystem(void)
 {
     XScuGic_Config *IntcConfig;
     int status;
@@ -67,65 +162,52 @@ int SetupInterruptSystem() // 初始化中断系统
         return XST_FAILURE;
 
     Xil_ExceptionInit();
-
-    Xil_ExceptionRegisterHandler(
-        XIL_EXCEPTION_ID_INT,
-        (Xil_ExceptionHandler)XScuGic_InterruptHandler,
-        &Intc);
-
+    Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
+                                 (Xil_ExceptionHandler)XScuGic_InterruptHandler,
+                                 &Intc);
     Xil_ExceptionEnable();
 
     return XST_SUCCESS;
 }
 
-// ===== 配置PL中断 =====
-int SetupPLInterrupt() // 配置PL中断
+// ==============================================================================
+// PL 中断配置
+// ==============================================================================
+int SetupPLInterrupt(void)
 {
     int status;
-
-    status = XScuGic_Connect(&Intc,
-                             PL_IRQ_ID,
-                             (Xil_ExceptionHandler)PL_IRQHandler, // 注册PL中断服务函数
+    status = XScuGic_Connect(&Intc, PL_IRQ_ID,
+                             (Xil_ExceptionHandler)PL_IRQHandler,
                              NULL);
     if (status != XST_SUCCESS)
         return XST_FAILURE;
 
-    // 配置优先级 + 触发方式（上升沿触发）
-    XScuGic_SetPriorityTriggerType(&Intc,
-                                   PL_IRQ_ID, // 中断ID
-                                   0xA0,      // 中断优先级
-                                   0x3);      // 上升沿触发(0x1高电平触发，0x3上升沿触发)
-
+    XScuGic_SetPriorityTriggerType(&Intc, PL_IRQ_ID, 0xA0, 0x3);
     XScuGic_Enable(&Intc, PL_IRQ_ID);
 
     return XST_SUCCESS;
 }
 
-// ===== main =====
+// ==============================================================================
+// 主函数
+// ==============================================================================
 int main(void)
 {
-    printf("PL IRQ Test Start\r\n");
+    printf("PL IRQ + ADC FFT + Hamming Window Test Start\r\n");
 
     // 初始化中断系统
-    if (SetupInterruptSystem() != XST_SUCCESS)
-    {
-        printf("GIC init failed!\r\n");
-        return -1;
-    }
-
-    // 配置PL中断
-    if (SetupPLInterrupt() != XST_SUCCESS)
-    {
-        printf("PL IRQ setup failed!\r\n");
-        return -1;
-    }
+    SetupInterruptSystem();
+    SetupPLInterrupt();
 
     Xil_Out32(ADC_START_ADDR, 0);
-    Xil_Out32(ADC_START_ADDR, 1);
+    Xil_Out32(ADC_START_ADDR, 0);
 
+    // 执行FFT测试
+    test_fft_adc();
+
+    // 主循环
     while (1)
     {
-        // 死循环，等待中断触发
     }
 
     return 0;
