@@ -1,21 +1,42 @@
-# Ignore build output directory
-/build
-/export
-
-# Ignore object files and dependent files
-.o
-.d
-
-#Ignore logs folder and log files
-/logs
-.log
-
-#Ignore lock files
-.lock
-
-.bin
-.pdi
-.vitisWorkspace.json
-
-_ide/logs
-_ide/.wsdata
+# Vivado generated output
+*.cache/
+*.gen/
+*.runs/
+*.sim/
+*.hw/
+*.ip_user_files/
+.Xil/
+*.jou
+*.log
+*.str
+*.rpt
+*.rpx
+*.pb
+*.dcp
+*.bit
+*.xsa
+*.lck
+*.wdb
+*.wcfg
+# Vitis / editor output
+platform/
+_ide/
+.rigel_lopper/
+.vscode/
+.cache/
+build/
+export/
+compile_commands.json
+*.obj
+*.o
+*.d
+*.elf
+*.bin
+*.BIN
+*.bak*
+__pycache__/
+.env
+.env.*
+*.pem
+*.key
+# Kept deliberately: source .xpr/.bd/.xci/.coe, CMSIS static libraries
