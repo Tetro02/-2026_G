@@ -13,3 +13,7 @@
 CMSIS 官方来源：[CMSIS-DSP](https://github.com/ARM-software/CMSIS-DSP)、[CMSIS_5](https://github.com/ARM-software/CMSIS_5)。静态库可用官方源码按 Cortex-A9 / ARMv7-A、工程的浮点 ABI 重建；当前仓库未提供已验证的静态库重建流程。
 
 历史提交保留了整理前的厂商生成文件及各自的声明；本次没有改写历史。不要将根 MIT 许可理解为对全部历史第三方内容的重新授权。
+
+## 作者补充的设计报告图片
+
+`docs/images/report-*.png` 提取自作者提供的设计报告参考版，作为该项目的技术参考。图片内容和与现行源码的差异见 `docs/report-reference.md`；其中如有引用的器件电路或第三方材料，根目录 MIT 许可不对其重新授权。未分发原 DOCX 及编辑者元数据。
